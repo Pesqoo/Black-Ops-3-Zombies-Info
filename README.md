@@ -1522,12 +1522,212 @@ if(level.var_f06c86b9 > 6)
 }
 ```
 
+# Zombies Health behavior from round 112+
+
+In BO1, zombie health used to overflow past the 32-bit integer limit into negative numbers, making instakill rounds. 
+To prevent this in BO3, Treyarch added an overflow check inside `ai_calculate_health`
+
+[`zombie_utility.gsc`:](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/shared/ai/zombie_utility.gsc#L1906)
+```gsc
+function ai_calculate_health( round_number )
+{
+	level.zombie_health = level.zombie_vars["zombie_health_start"]; 
+	for ( i=2; i <= round_number; i++ )
+	{
+		// After round 10, get exponentially harder
+		if ( i >= 10 )
+		{
+			old_health = level.zombie_health;
+			level.zombie_health += Int( level.zombie_health * level.zombie_vars["zombie_health_increase_multiplier"] );
+
+			if ( level.zombie_health < old_health )
+			{
+				// we must have overflowed the signed integer space, just use the last good health, it'll give some headroom to the capped value to account for extra damage applications
+				level.zombie_health = old_health;
+				return;
+			}
+		}
+		else
+		{
+			level.zombie_health = Int( level.zombie_health + level.zombie_vars["zombie_health_increase"] ); 
+		}
+	}
+}
+```
+
+FireWorks:
+[`_zm_aat_fire_works.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/zm/aats/_zm_aat_fire_works.gsc#L221)
+```gsc
+// Gibs and Kills zombie
+// self == affected zombie
+// e_attacker == the script_model of the gun (needs to do the damage, so the player doesn't receive kickback)
+// w_weapon == the weapon to apply damage using
+// e_owner == the owner of the gun (for awarding challenge stat progress)
+function zombie_death_gib( e_attacker, w_weapon, e_owner )
+{
+	gibserverutils::gibhead( self );
+	
+	if ( math::cointoss() )
+	{
+		gibserverutils::gibleftarm( self );
+	}
+	else
+	{
+		gibserverutils::gibrightarm( self );
+	}
+	
+	gibserverutils::giblegs( self );
+	
+	self DoDamage( self.health, self.origin, e_attacker, w_weapon, "torso_upper" );
+
+	if ( IsDefined( e_owner ) && IsPlayer( e_owner ) )
+	{
+		e_owner zm_stats::increment_challenge_stat( "ZOMBIE_HUNTER_FIRE_WORKS" );
+	}
+}
+```
+
+Thunderwall:
+[`_zm_aat_thunder_wall.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/zm/aats/_zm_aat_thunder_wall.gsc#L119)
+```gsc
+// Executes the fling. If the zombie is the one hit by the bullet, will fling automatically
+		if ( v_curr_zombie_origin_sq < f_thunder_wall_range_sq )
+		{
+			a_ai_zombies[i] DoDamage( a_ai_zombies[i].health, v_curr_zombie_origin, attacker, attacker, "none", "MOD_IMPACT" );
+
+			if ( IsDefined( attacker ) && IsPlayer( attacker ) )
+			{
+				attacker zm_stats::increment_challenge_stat( "ZOMBIE_HUNTER_THUNDER_WALL" );
+			}
+			
+			// If current ai_zombie is not immune to indirect results from the AAT, ragdoll
+			if ( !IS_TRUE( level.aat[ ZM_AAT_THUNDER_WALL_NAME ].immune_result_indirect[ self.archetype ] ) )
+			{
+				// Adds a slight variance to the direction of the fling
+				n_random_x = RandomFloatRange( -3, 3 );
+				n_random_y = RandomFloatRange( -3, 3 );
+				
+				a_ai_zombies[i] StartRagdoll( true );
+				a_ai_zombies[i] LaunchRagdoll ( ZM_AAT_THUNDER_WALL_FORCE * VectorNormalize( v_curr_zombie_origin - v_thunder_wall_blast_pos + ( n_random_x, n_random_y, ZM_AAT_THUNDER_WALL_UPWARD_ANGLE ) ), "torso_lower" );
+			}
+			
+			n_flung_zombies++;
+		}
+```
+
+Turned:
+[`_zm_aat_turned.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/zm/aats/_zm_aat_turned.gsc#L223)
+```gsc
+// Gibs and Kills zombie
+// self == affected zombie
+function zombie_death_gib( e_attacker )
+{
+	gibserverutils::gibhead( self );
+	
+	if ( math::cointoss() )
+	{
+		gibserverutils::gibleftarm( self );
+	}
+	else
+	{
+		gibserverutils::gibrightarm( self );
+	}
+	
+	gibserverutils::giblegs( self );
+	
+	self DoDamage( self.health, self.origin );
+}
+```
+
+Ice Staff:
+[`_zm_weap_staff_water.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_staff_water.gsc#L188)
+```gsc
+function staff_water_kill_zombie(player, str_weapon)
+{
+	self freeze_zombie();
+	self zm_tomb_utility::do_damage_network_safe(player, self.health, str_weapon, "MOD_RIFLE_BULLET");
+	if(isdefined(self.deathAnim))
+	{
+		self waittillmatch("death_anim");
+	}
+	if(isdefined(self))
+	{
+		self thread frozen_zombie_shatter();
+	}
+	player zm_score::player_add_points("death", "", "");
+}
+```
+
+Unupgraded SoE Sword:
+[`_zm_weap_glaive.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_glaive.gsc#L471)
+```gsc
+function tesla_death(player)
+{
+	self endon("death");
+	self thread function_862aadab(1);
+	wait(2);
+	player thread zm_audio::create_and_play_dialog("kill", "sword_slam");
+	self DoDamage(self.health + 1, self.origin);
+}
+```
+
+Storm Bow:
+[`_zm_weap_elemental_bow_storm.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_elemental_bow_storm.gsc#L339)
+```gsc
+...
+		{
+			n_damage = 4782;
+			str_damage_mod = "MOD_UNKNOWN";
+			var_79be6e3b = self.health;
+		}
+		var_dfc0ef57 = 0;
+		if(isdefined(e_player) && (isdefined(level.zombie_vars[e_player.team]["zombie_insta_kill"]) && level.zombie_vars[e_player.team]["zombie_insta_kill"]) && self.archetype !== "mechz")
+		{
+			var_dfc0ef57 = 1;
+		}
+		if(var_79be6e3b > n_damage && !var_dfc0ef57)
+		{
+			self DoDamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, level.var_16e90d5f);
+			if(var_94d13bd0)
+			{
+				var_b50659f2 = 1;
+				if(self.archetype === "mechz")
+				{
+					self thread function_23c30f35(e_player, var_9b78d768, var_337b3336);
+				}
+				else
+				{
+					self thread function_8a5627f3(e_player, var_9b78d768, var_337b3336);
+				}
+			}
+			else
+			{
+				self.var_789ebfb2 = 0;
+			}
+		}
+```
+
+Fire Bow:
+[`_zm_weap_elemental_bow_rune_prison.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_elemental_bow_rune_prison.gsc#L215)
+```gsc
+...
+else if(self.archetype === "zombie")
+		{
+			if(math::cointoss())
+			{
+				GibServerUtils::GibHead(self);
+				self clientfield::set("runeprison_zombie_death_skull", 1);
+			}
+			self DoDamage(self.health, var_c8bd3127.origin, e_player, e_player, undefined, "MOD_BURNED", 0, level.var_791ba87b);
+		}
+		self SetPlayerCollision(1);
+		self Unlink();
+	}
+```
 
 ---
 
 # TODO
-
-Zombies Health behavior from round 112+ // TODO
 
 Turned Army // TODO
 
