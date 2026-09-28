@@ -345,22 +345,83 @@ When you fully throw a grenade, the game finally triggers `grenade_fire`, and ev
 ---
 
 ## Throwable Equipment Error
-*- This will **NOT** work for solo -*
 
-### What causes the leak?
-When a player successfully throws a grenade or equipments, GSC starts tracking threads on the spawned projectile:
+### - What Causes This Error
+Every time you throw a lethal or tactical grenade (Frags, Monkeys, Gershes, QEDs...), **OR every time a zombie hits you while you have Widow’s Wine**, the game leaves a thread permanently stuck on your player that never gets deleted.
+
+This is a **gradual build up error**. Each throw permanently leaks **1 thread**, a helper struct, and variables in the **Child GSC** pool. When the variable pool reaches the hard limit of **130,000**, the game crashes with a `Connection Interrupted` (CI Error).
+
+### - What Happens?
+When you throw a grenade, [`watchForGrenadeDuds()`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/gametypes/_weapons.gsc#L1078) in [`_weapons.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/gametypes/_weapons.gsc) starts tracking duds on the thrown grenade:
+
+*(Note: When hit with Widow's Wine, [`widows_wine_contact_explosion()`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_perk_widows_wine.gsc#L249) uses `MagicGrenadeType()` spawning a grenade that explodes instantly. This still triggers `"grenade_fire"` event, basically "throwing" an instant contact grenade).*
+
 ```gsc
-grenade thread checkGrenadeForDud( weapon, true, self );
+function checkGrenadeForDud(weapon, isThrownGrenade, player)
+{
+	self endon("death");
+	player endon("zombify");
+	...
+	for(;;)
+	{
+		self util::waittill_any_ex(0.25, "grenade_bounce", "stationary", "death", player, "zombify");
+		...
+	}
+}
 ```
-Inside this function, GSC calls a multi-entity wait function (`waittill_any_ex`) to wait for events on both the grenade (its "death") and the player (such as "zombify").
 
-To do this, the game spawns a temporary control struct (`s_common`) and starts helper threads on both entities:
+To check for both the grenade dying and the player getting downed/zombified at the same time, it calls [`waittill_any_ex()`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/shared/util_shared.gsc#L531) inside [`util_shared.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/shared/util_shared.gsc):
+
+```gsc
+function waittill_any_ex(vararg)
+{
+	s_common = spawnstruct();
+	...
+	for(i = n_start_index; i < a_params.size; i++)
+	{
+		if(!IsString(a_params[i]))
+		{
+			e_current = a_params[i];
+			continue;
+		}
+		if(isdefined(e_current))
+		{
+			e_current thread waittill_string(a_params[i], s_common);
+		}
+	}
+	s_common waittill("returned", str_notify);
+	s_common notify("die");
+	return str_notify;
+}
+```
+
+To wait for both entities, `waittill_any_ex()` creates a temporary struct (`s_common`) and starts helper threads on both:
 1. A thread on the **grenade** waiting for `"death"`
 2. A thread on the **player** waiting for `"zombify"` (`player thread waittill_string(...)`)
 
-When the grenade explodes, the grenade entity is deleted. Because the entity is gone, the tracking thread running on the grenade is instantly killed by the engine. 
+This helper thread is supposed to close when `s_common` sends `"die"`, but it's never triggered:
 
-Because the thread was terminated while running, **it never gets to tell the thread attached to the player to stop**. As a result, the `waittill_string` thread on the player remains permanently stuck waiting for an event, keeping the temporary variables and helper structs leaked in memory.
+```gsc
+function waittill_string(msg, ent)
+{
+	if(msg != "death")
+	{
+		self endon("death");
+	}
+	ent endon("die");
+	self waittill(msg);
+	ent notify("returned", msg);
+}
+```
+
+### - Why it Leaks
+Because `checkGrenadeForDud` runs on the grenade with `self endon("death");`, the moment the grenade blows up, the grenade entity is deleted.
+
+This instantly kills the loop while waiting. 
+
+Because the script was killed before it finished, **it never reaches the line `s_common notify("die");`**.
+
+The helper thread on the grenade dies because the grenade is gone, but the thread on the **player** is still sitting there waiting for `"zombify"` or `"die"`. Since neither will ever happen, that thread stays stuck on the player forever, leaking 1 thread and keeping `s_common` stuck.
 
 ### - Why off-host players Leaving the Game Clears It?
 When a non-host player disconnects, the server completely deletes their GSC player entity. This triggers a full memory cleanup of that player, which automatically wipes out all of their stuck threads and variables from the server.
