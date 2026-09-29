@@ -469,7 +469,7 @@ So i suggest whenever you have thrown 2000 nades, leave and join back the game.
 *(Technically, this error should be called an **Empty String RefCount Freeze**, but **“VD RefCount Freeze”** will make it easier to understand, since damaging vehicle entities from `Callback_VehicleDamage` is what triggers it).*
 
 ### - What Causes This Freeze
-Every time any type of damage hits **any vehicle entity** (Spiders, Meatballs, Bugs), the game runs [`Callback_VehicleDamage`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc#L49) in [`globallogic_vehicle.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc). Inside this function, a leftover debug line executes on **every single hit**:
+Every time any type of damage hits **any vehicle entity** (Spiders, Meatballs, Bugs), the game runs [`Callback_VehicleDamage`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc#L49) in [`globallogic_vehicle.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc). Inside this function, a leftover [`logPrint`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc#L258) line executes on **every single hit**:
 
 ```gsc
 logPrint("VD;" + lpselfnum + ";" + lpselfteam + ";" + lpattackGuid + ";" + lpattacknum + ";" + lpattackerteam + ";" + lpattackname + ";" + weapon.name + ";" + iDamage + ";" + sMeansOfDeath + ";" + sHitLoc + "\n");
@@ -481,14 +481,10 @@ In the game engine, string reference counts are stored as a **16-bit number, whi
 
 Every hit against a vehicle enemy pushes this number higher. Once it reaches **65,535**, the counter **overflows back to 0**. The game engine misinterprets this as the string having zero uses left, tries to delete it, gets stuck in an infinite loop, and **freezes the game**.
 
----
-
 ### - How to Avoid the Freeze
 On **Zetsubou No Shima**, use mostly **Electric Cherry** and **Skull of Nan Sapwe** to kill spiders.
 
 On **Shadows of Evil**, avoid shooting **bugs or meatballs** with bullet weapons.
-
----
 
 ### - How to Track It
 In the [BOII-Community Client](https://gitlab.com/boiii-community/BOIII-Community), enable `/cg_drawVDRefCount 1` in the console. This Draws Vehicle Damage (VD) string refcount.
