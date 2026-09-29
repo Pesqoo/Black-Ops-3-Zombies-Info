@@ -34,7 +34,7 @@
   * [How To Read The Error Tracker (LiveSplit)](#how-to-read-livesplit-error-tracker)
   * [Rags Slams / Nade Swap Error](#rags-slams--nade-swap--nade-cancel-error)
   * [Throwable Equipment Error](#throwable-equipment-error)
-  * [“Hitmarker” Freeze](#hitmarker-freeze)
+  * [“Hitmarker” Freeze](#vehicle-damage-vd-refcount-freeze)
   * [Skull of Nan Sapwe Error](#skull-of-nan-sapwe-error)
   * [Early Reset / G_Spawn Error](#early-reset--g_spawn)
   * [Shadows of Evil Errors (Physics & G_Spawn)](#shadows-of-evil-errors)
@@ -463,36 +463,35 @@ So i suggest whenever you have thrown 2000 nades, leave and join back the game.
 
 ---
 
-## “Hitmarker” Freeze
-*This issue is **global**, meaning all players in the match contribute to the buildup.*
-*This is NOT to get confused with the Freeze that happens on Gorod Krovi, it’s unrelated.*
+## Vehicle Damage (“VD”) RefCount Freeze
+*This was previously known as the “Hitmarker Freeze”.*  
+*This issue is **global** and server based, meaning all players in the match contribute to the buildup.*  
+*(Technically, this error should be called an **Empty String RefCount Freeze**, but **“VD RefCount Freeze”** will make it easier to understand, since damaging vehicle entities from `Callback_VehicleDamage` is what triggers it).*
 
-### - What Causes the “Hitmarker” Freeze
-While it's still not 100% certain what exactly triggers the freeze, here's what we know:
+### - What Causes This Freeze
+Every time any type of damage hits **any vehicle entity** (Spiders, Meatballs, Bugs), the game runs [`Callback_VehicleDamage`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc#L49) in [`globallogic_vehicle.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc). Inside this function, a leftover debug line executes on **every single hit**:
 
-When the game reaches around **60,000 hitmarkers**, it will eventually **freeze.**
+```gsc
+logPrint("VD;" + lpselfnum + ";" + lpselfteam + ";" + lpattackGuid + ";" + lpattacknum + ";" + lpattackerteam + ";" + lpattackname + ";" + weapon.name + ";" + iDamage + ";" + sMeansOfDeath + ";" + sHitLoc + "\n");
+```
 
-From testing, I believe the issue appears to be in how **attackers and victims interact** during damage feedback
+Because variables like `lpselfteam` and `lpattackGuid` are set to empty strings (`""`), every hit adds references to the engine's **Empty String** (`""`).
 
-Every time a bullet hits a special enemy `_globallogic_vehicle.gsc` calls this function `Callback_VehicleDamage` to process the hit.
-* Calls Callback_VehicleDamage
-* Attacker being tracked (the game will store who hit what)
+In the game engine, string reference counts are stored as a **16-bit number, which has a hard limit of `65,535`**.
 
-The way we track it is by brute force counting hitmarkers themselves. Since nothing else in the tracked variables shows errors or overflows when the “hitmarker” freeze happen., we only have an estimate which seems to be between 55k to 60k hitmarkers before freezing.
+Every hit against a vehicle enemy pushes this number higher. Once it reaches **65,535**, the counter **overflows back to 0**. The game engine misinterprets this as the string having zero uses left, tries to delete it, gets stuck in an infinite loop, and **freezes the game**.
+
+---
 
 ### - How to Avoid the Freeze
 On **Zetsubou No Shima**, use mostly **Electric Cherry** and **Skull of Nan Sapwe** to kill spiders.
 
 On **Shadows of Evil**, avoid shooting **bugs or meatballs** with bullet weapons.
 
-As of **19/04/2026** Recently found out that the vesper and a few other smgs, actually triggers the thread differently, i believe it’s due to how it has a different “type weapon”.
-Because of this some smgs, can actually reach in the 160k hitmarkers
+---
 
-### - Hitmarkers per Weapon (ZnS)
-* Vesper = **4** Hitmarkers (This is actually 1.5) ![](images/image3.png)
-* M8A7 = **3** Hitmarkers
-* ICR-7 = **2** Hitmarkers
-* RK5 = **1** Hitmarker
+### - How to Track It
+In the [BOII-Community Client](https://gitlab.com/boiii-community/BOIII-Community), enable `/cg_drawVDRefCount 1` in the console. This Draws Vehicle Damage (VD) string refcount.
 
 ---
 
