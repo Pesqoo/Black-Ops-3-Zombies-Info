@@ -1,81 +1,60 @@
 <h1 align="center">BO3 Zombies Infos for High Rounders</h1>
 
 <p align="center">
-  <a href="https://docs.google.com/document/d/1_YguF4tDvJxPxoACrdw3tF5WoLf1CRWfu4XE1TIK6VQ/edit?tab=t.wb7xttfpktcl#heading=h.pm0o615drx9w"><img src="https://img.shields.io/badge/Google%20Docs-Main%20Document-grey?style=for-the-badge&logo=googledocs&logoColor=white&labelColor=4285F4" alt="Main Document"></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://docs.google.com/spreadsheets/d/1tZzWyMXOmVbWzf9ZrgWBRRMjJwL7Xfpze-X9_pz7PpU/edit?gid=0#gid=0"><img src="https://img.shields.io/badge/Google%20Sheets-Reset%20/%20Entities-grey?style=for-the-badge&logo=googlesheets&logoColor=white&labelColor=0F9D58" alt="Reset/Entities Spreadsheet"></a>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" width="119" height="1" alt="" /><a href="https://github.com/oJumpy/BOIII-T7-Zombies-AutoTimers"><img src="assets/badge-autotimer.svg" alt="LiveSplit AutoTimer"></a>
+  &nbsp;
+  <a href="https://github.com/oJumpy/Bo3-Debugger"><img src="assets/badge-debugger.svg" alt="BO3 Debugger"></a><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" width="62" height="1" alt="" />
 </p>
 
+<p align="center">
+  <a href="https://docs.google.com/spreadsheets/d/1-c85Fazc0h1Swi5EEIgGgTfXB3mFmIOZBzWQkaj7mes/edit?gid=1423684734#gid=1423684734"><img src="https://img.shields.io/badge/Google%20Sheets-Leaderboards%20/%20Averages-grey?style=for-the-badge&logo=googlesheets&logoColor=white&labelColor=0F9D58" alt="Leaderboards / Solo Averages"></a>
+  &nbsp;
+  <a href="https://docs.google.com/spreadsheets/d/1z7OWzh2xMY5oA12GQIj3_kdVJOrK0BRunPw0Jy3ND88/edit?gid=0#gid=0"><img src="https://img.shields.io/badge/Google%20Sheets-SPH%20Calculator-grey?style=for-the-badge&logo=googlesheets&logoColor=white&labelColor=0F9D58" alt="SPH Calculator"></a>
+</p>
 
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" width="64" height="1" alt="" /><a href="https://docs.google.com/spreadsheets/d/1tZzWyMXOmVbWzf9ZrgWBRRMjJwL7Xfpze-X9_pz7PpU/edit?gid=0#gid=0"><img src="https://img.shields.io/badge/Google%20Sheets-Reset%20/%20Entities-grey?style=for-the-badge&logo=googlesheets&logoColor=white&labelColor=0F9D58" alt="Reset/Entities Spreadsheet"></a>
+  &nbsp;
+  <a href="https://docs.google.com/spreadsheets/d/1EHfs-Lb9yy_EahHVTvN8M3QsKiY_X3Prn09-EtJT0d8/edit?gid=601464579#gid=601464579"><img src="https://img.shields.io/badge/Google%20Sheets-All%20CSV%20Data-grey?style=for-the-badge&logo=googlesheets&logoColor=white&labelColor=0F9D58" alt="All CSV Data / Weapon Orders"></a><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif" width="21" height="1" alt="" />
+</p>
 
-# Contents
+## Table of Contents
 
-**[Overlays Warning](#overlays-crash-warning)**
-
----
-
-**[Sleep / Hibernate](#sleep--hibernate)**
-  - [Testing & Choosing What Works FOR YOU](#testing--choosing-what-works-for-you)
-
----
-
-**[Workshop Mods](#workshop-mods)**
-  - [Strat Tester - Highlight & SPH](#strat-tester---highlight--sph)
-  - [Zombies Community patch](#zombies-community-patch)
-  - [Zombies Community patch 4Modderz](#zombies-community-patch-4modderz)
-  - [Aesthetic Mods](#aesthetic-mods)
-
----
-
-**[AATs (Alternate Ammo Types)](#aats-alternate-ammo-types)**
-  - [Lucky Crit](#lucky-crit)
-
----
-
-**[Frozen/Torso/Invisibles Zombies Rounds](#frozen-rounds)**
-
----
-
-**[Errors](#errors)**
-
-  - [Rags Slams / Nade Swap / Nade Cancel Error](#rags-slams--nade-swap--nade-cancel-error)
-  - [Throwable Equipment Error](#throwable-equipment-error)
-  - [“Hitmarker” Freeze](#hitmarker-freeze)
-  - [Early Reset / G_Spawn](#early-reset--g_spawn)
-  - [Shadows of Evil Errors](#shadows-of-evil-errors)
-  - [Gorod Krovi Freeze](#gorod-krovi-freeze)
-  - [Box Error](#box-error)
-
----
-
-**[Read Error Tracker](#read-error-tracker)**
-
-  - [How To Read Livesplit Error Tracker](#how-to-read-livesplit-error-tracker)
-
----
-
-**[GK Freeze Detailed By Kxg124](#gk-freeze-detailed-by-kxg124)**
-
----
-
-**[25 Day Error Bypass](#25-day-error-bypass)**
-
----
-
-**[Niche Knowledge](#niche-knowledge)**
-  - [Darkness](#darkness)
-    - [Darkness Video + Images](#darkness-video--images)
-  - [Instakill Drop Behavior](#instakill-drop-behavior)
-  - [Bugs/Parasites Behavior on Shadows of Evil](#bugsparasites-behavior-on-shadows-of-evil)
-  - [Special Enemies Spawn Delay](#special-enemies-delay)
-  - [Der Eisendrache dogs health behavior](#der-eisendrache-dogs-health-behavior)
-  - [Specialist Charge Rate](#specialist-charge-rate)
-  - [Upgraded Sword Behavior](#upgraded-sword-behavior)
-  - [Trap Immunity / Panzer Flame Glitch](#trap-immunity--panzer-flame-glitch)
-  - [Broken Randomize Function](#broken-randomize-function)
-  - [Weighted Weapons](#weighted-weapons)
-  - [Shadows of Evil Pods odds](#shadows-of-evil-pods-odds)
-  - [TODO](#todo)
+* **Setup**
+  * [Overlays Crash Warning](#overlays-crash-warning)
+  * [Sleep / Hibernate Guide](#sleep--hibernate)
+    * [Testing & Choosing What Works FOR YOU](#testing--choosing-what-works-for-you)
+  * [Workshop Mods](#workshop-mods)
+* **Mechanics / Infos**
+  * [AATs (Alternate Ammo Types) & Lucky Crit](#aats-alternate-ammo-types)
+  * [Frozen / Torso / Invisible Zombie Rounds](#frozen-rounds)
+  * [Weighted Mystery Box Weapons](#weighted-weapons)
+  * [25 Day Error & Bypass](#25-day-error-bypass)
+* **Errors**
+  * [How To Read The Error Tracker (LiveSplit)](#how-to-read-livesplit-error-tracker)
+  * [Rags Slams / Nade Swap Error](#rags-slams--nade-swap--nade-cancel-error)
+  * [Throwable Equipment Error](#throwable-equipment-error)
+  * [“Hitmarker” Freeze](#vehicle-damage-vd-refcount-freeze)
+  * [Skull of Nan Sapwe Error](#skull-of-nan-sapwe-error)
+  * [Early Reset / G_Spawn Error](#early-reset--g_spawn)
+  * [Shadows of Evil Errors (Physics & G_Spawn)](#shadows-of-evil-errors)
+  * [Gorod Krovi Freeze (CSC Leaks)](#gorod-krovi-freeze)
+  * [Box Error (GSC Thread Leaks)](#box-error)
+  * [25 Day Error](#25-day-error)
+* **Niche Knowledge**
+  * [Darkness](#darkness)
+    * [Darkness Video + Images](#darkness-video--images)
+  * [Instakill Drop Behavior](#instakill-drop-behavior)
+  * [Bugs/Parasites Behavior on Shadows of Evil](#bugsparasites-behavior-on-shadows-of-evil)
+  * [Special Enemies Spawn Delays](#special-enemies-delay)
+  * [Der Eisendrache Dogs Health Bug](#der-eisendrache-dogs-health-behavior)
+  * [Specialist Charge Rates](#specialist-charge-rate)
+  * [Upgraded Sword Behavior](#upgraded-sword-behavior)
+  * [Trap Immunity / Panzer Flame Glitch](#trap-immunity--panzer-flame-glitch)
+  * [Broken Randomize Function](#broken-randomize-function)
+  * [Weighted Weapons](#weighted-weapons)
+  * [Shadows of Evil Pods odds](#shadows-of-evil-pods-odds)
+  * [TODO](#todo)
 
 ---
 
@@ -171,7 +150,7 @@ This reduces system load while the game is suspended.
 
 #
 
-### Testing & Choosing What Works **FOR YOU**
+## Testing & Choosing What Works **FOR YOU**
 **Important**: One method will reliably work for your system, but you need to test to determine which one.
 
 1. **Test on Round 1**
@@ -332,14 +311,14 @@ Rounds where the **Bows** kills zombies properly:
 </h1>
 
 ## Rags Slams / Nade Swap / Nade Cancel Error:
-- **NOT** *the same as Grenade / Widows CI Error -*
+ *- **NOT** the same as Grenade / Widows CI Error -*
 
 (Co-Op & Solo)
-This is a **different error** from the usual **Nade Error / Widows Wine CI**.
-The “Nade Error” is caused when you **SUCCESSFULLY** throw equipment.
+This is a **different error** from the standard **Throwable Equipment Error**. 
+The "Throwable Equipment Error" is caused when you **SUCCESSFULLY** throw equipment. This error, however, is caused by cancelling the throw or rags slams.
 
 ### - What Causes This CI Error
-Every time you **slam** with **Ragnarok DG-4**, **cancel** a grenade throw or **nade swap**, the game creates two threads that never get cleaned up. The game increases the **Child GSC** variable.
+Every time you **slam** with **Ragnarok DG-4**, **cancel** a grenade throw or **nade swap**, the game notifies `grenade_pullback` on the player. This creates two threads that never get cleaned up, permanently leaked in the **Child GSC** Pool.
 
 The `beginGrenadeTracking()` thread (waiting for `grenade_fire`)
 
@@ -348,7 +327,7 @@ The `watchGrenadeCancel()` thread (waiting for `grenade_fire`)
 After ~**3000 rags slams/nade swaps**, you have ~6000+ stuck threads. The **Child GSC variable** tracks active threads and crashes when it reaches ~130,000.
 
 ### - The Fix
-**Fully throw ONE grenade, monkey, or trip mine every round to keep it simple or every ~1000/~2000 slams/swaps. That's it.**
+**Fully throw ONE grenade, monkey, or trip mine every round to keep it simple or every ~1000/~2000 slams/swaps (or less). That's it.**
 
 When you fully throw a grenade, the game finally triggers `grenade_fire`, and every waiting thread will terminate.
 
@@ -360,15 +339,93 @@ When you fully throw a grenade, the game finally triggers `grenade_fire`, and ev
 * Repeat
 
 ### - Tools to Make This Easier
-* [lveez Debugger](https://github.com/lveez/bo3-debugger/releases/tag/v1)
+* [oJumpy's Debugger](github.com/oJumpy/Bo3-Debugger)
   ![](images/image12.png)
 * [oJumpy’s Livesplit Script](https://github.com/oJumpy/Livesplit-AutoTimers-BOIII) with Child variable monitor
-  Shows the Child value so you can track when to reset.
   
 ---
 
 ## Throwable Equipment Error
-- *This will **NOT** work for solo -*
+
+### - What Causes This Error
+Every time you throw a lethal or tactical grenade (Frags, Monkeys, Gershes, QEDs...), **OR every time a zombie hits you while you have Widow’s Wine**, the game leaves a thread permanently stuck on your player that never gets deleted.
+
+This is a **gradual build up error**. Each throw permanently leaks **1 thread**, a helper struct, and variables in the **Child GSC** pool. When the variable pool reaches the hard limit of **130,000**, the game crashes with a `Connection Interrupted` (CI Error).
+
+### - What Happens?
+When you throw a grenade, [`watchForGrenadeDuds()`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/gametypes/_weapons.gsc#L1078) in [`_weapons.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/gametypes/_weapons.gsc) starts tracking duds on the thrown grenade:
+
+*(Note: When hit with Widow's Wine, [`widows_wine_contact_explosion()`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_perk_widows_wine.gsc#L249) uses `MagicGrenadeType()` spawning a grenade that explodes instantly. This still triggers `"grenade_fire"` event, basically "throwing" an instant contact grenade).*
+
+```gsc
+function checkGrenadeForDud(weapon, isThrownGrenade, player)
+{
+	self endon("death");
+	player endon("zombify");
+	...
+	for(;;)
+	{
+		self util::waittill_any_ex(0.25, "grenade_bounce", "stationary", "death", player, "zombify");
+		...
+	}
+}
+```
+
+To check for both the grenade dying and the player getting downed/zombified at the same time, it calls [`waittill_any_ex()`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/shared/util_shared.gsc#L531) inside [`util_shared.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/shared/util_shared.gsc):
+
+```gsc
+function waittill_any_ex(vararg)
+{
+	s_common = spawnstruct();
+	...
+	for(i = n_start_index; i < a_params.size; i++)
+	{
+		if(!IsString(a_params[i]))
+		{
+			e_current = a_params[i];
+			continue;
+		}
+		if(isdefined(e_current))
+		{
+			e_current thread waittill_string(a_params[i], s_common);
+		}
+	}
+	s_common waittill("returned", str_notify);
+	s_common notify("die");
+	return str_notify;
+}
+```
+
+To wait for both entities, `waittill_any_ex()` creates a temporary struct (`s_common`) and starts helper threads on both:
+1. A thread on the **grenade** waiting for `"death"`
+2. A thread on the **player** waiting for `"zombify"` (`player thread waittill_string(...)`)
+
+This helper thread is supposed to close when `s_common` sends `"die"`, but it's never triggered:
+
+```gsc
+function waittill_string(msg, ent)
+{
+	if(msg != "death")
+	{
+		self endon("death");
+	}
+	ent endon("die");
+	self waittill(msg);
+	ent notify("returned", msg);
+}
+```
+
+### - Why it Leaks
+Because `checkGrenadeForDud` runs on the grenade with `self endon("death");`, the moment the grenade blows up, the grenade entity is deleted.
+
+This instantly kills the loop while waiting. 
+
+Because the script was killed before it finished, **it never reaches the line `s_common notify("die");`**.
+
+The helper thread on the grenade dies because the grenade is gone, but the thread on the **player** is still sitting there waiting for `"zombify"` or `"die"`. Since neither will ever happen, that thread stays stuck on the player forever, leaking 1 thread and keeping `s_common` stuck.
+
+### - Why off-host players Leaving the Game Clears It?
+When a non-host player disconnects, the server completely deletes their GSC player entity. This triggers a full memory cleanup of that player, which automatically wipes out all of their stuck threads and variables from the server.
 
 Only works for non-host players. If you’re off-host, you can throw equipment, but you must leave the game afterward to clear up threads.
 
@@ -407,38 +464,46 @@ So i suggest whenever you have thrown 2000 nades, leave and join back the game.
 
 ---
 
-## “Hitmarker” Freeze
-*This issue is **global**, meaning all players in the match contribute to the buildup.*
-*This is NOT to get confused with the Freeze that happens on Gorod Krovi, it’s unrelated.*
+## Vehicle Damage (“VD”) RefCount Freeze
+*This was previously known as the “Hitmarker Freeze”.*  
+*This issue is **global** and server based, meaning all players in the match contribute to the buildup.*  
+*(Technically, this error should be called an **Empty String RefCount Freeze**, but **“VD RefCount Freeze”** will make it easier to understand, since damaging vehicle entities from `Callback_VehicleDamage` is what triggers it).*
 
-### - What Causes the “Hitmarker” Freeze
-While it's still not 100% certain what exactly triggers the freeze, here's what we know:
+### - What Causes This Freeze
+Every time any type of damage hits **any vehicle entity** (Spiders, Meatballs, Bugs), the game runs [`Callback_VehicleDamage`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc#L49) in [`globallogic_vehicle.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc). Inside this function, a leftover [`logPrint`](https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/gametypes/_globallogic_vehicle.gsc#L258) line executes on **every single hit**:
 
-When the game reaches around **55,000 - 60,000 hitmarkers**, it will eventually **freeze.**
+```gsc
+logPrint("VD;" + lpselfnum + ";" + lpselfteam + ";" + lpattackGuid + ";" + lpattacknum + ";" + lpattackerteam + ";" + lpattackname + ";" + weapon.name + ";" + iDamage + ";" + sMeansOfDeath + ";" + sHitLoc + "\n");
+```
 
-From testing, I believe the issue appears to be in how **attackers and victims interact** during damage feedback
+Because variables like `lpselfteam` and `lpattackGuid` are set to empty strings (`""`), every hit adds references to the engine's **Empty String** (`""`).
 
-Every time a bullet hits a special enemy `_globallogic_vehicle.gsc` calls this function `Callback_VehicleDamage` to process the hit.
-* Calls Callback_VehicleDamage
-* Attacker being tracked (the game will store who hit what)
+In the game engine, string reference counts are stored as a **16-bit number, which has a hard limit of `65,535`**.
 
-The way we track it is by brute force counting hitmarkers themselves. Since nothing else in the tracked variables shows errors or overflows when the “hitmarker” freeze happen., we only have an estimate which seems to be between 55k to 60k hitmarkers before freezing.
+Every hit against a vehicle enemy pushes this number higher. Once it reaches **65,535**, the counter **overflows back to 0**. The game engine misinterprets this as the string having zero uses left, tries to delete it, gets stuck in an infinite loop, and **freezes the game**.
 
 ### - How to Avoid the Freeze
 On **Zetsubou No Shima**, use mostly **Electric Cherry** and **Skull of Nan Sapwe** to kill spiders.
 
 On **Shadows of Evil**, avoid shooting **bugs or meatballs** with bullet weapons.
 
-Avoid using weapons that produce a large amount of hitmarkers to kill the special enemies, that’s what pushes the value toward 55k–60k.
+### - How to Track It
+In the [BOII-Community Client](https://gitlab.com/boiii-community/BOIII-Community), enable `/cg_drawVDRefCount 1` in the console. This Draws Vehicle Damage (VD) string refcount.
 
-As of **19/04/2026** Recently found out that the vesper and a few other smgs, actually triggers the thread differently, i believe it’s due to how it has a different “type weapon”.
-Because of this some smgs, can actually reach in the 160k hitmarkers
+---
 
-### - Hitmarkers per Weapon (ZnS)
-* Vesper = **4** Hitmarkers (This is actually 1.5) ![](images/image3.png)
-* M8A7 = **3** Hitmarkers
-* ICR-7 = **2** Hitmarkers
-* RK5 = **1** Hitmarker
+## Skull of Nan Sapwe Error
+
+### - What Causes The Error
+This error is caused by **putting the Skull of Nan Sapwe away early while zombies are still dying**. 
+
+Starting on **Round 162+** (and [other frozen rounds](https://github.com/oJumpy/Black-Ops-3-Zombies-Info#121-123-127-129-133-135-140-141-143-150-152-153-154-162)), zombies take **1 to 3 seconds** to actually die instead of dying instantly. 
+
+If you put the Skull away **while those zombies are still alive and being killed**, the script stops before cleaning up. This leaves threads permanently stuck. 
+
+### - How To Avoid The Error
+* **Wait 1 to 3 seconds for zombies to die:** On Round 162+ especially, do not put the Skull away while zombies are actively dying.
+* **Manually swap weapons:** Always switch your weapon to put the Skull away rather than letting it do it automatically when at 0%.
 
 ---
 
@@ -462,19 +527,18 @@ Using the Sword Slam **is safe.** It plays an animation first, so it doesn’t i
 ---
 
 ## Shadows of Evil Errors
-### Sound Error
+### Physics Error
 #### - What Causes the Error
-This is what I believe to be a **Sound Error** issue, when a large group of zombies are tightly inside each other (I belive around 15) and die simultaneosly, for example this can happen, from an Apothicon Servant shot when zombies are climbing/jumping from the ground spawner on to the rail during Junction Strategy or it can happen while shooting a Thundergun shot when a large amount of zombies is behing a single barrier, it completely overloads the sound system, causing an instant crash.
+This crash is a **Physics Overflow**. It occurs when a large group of zombies (roughly 15–24) are tightly inside each other and die simultaneously in the exact same coordinates. For example this can happen, from an Apothicon Servant shot when zombies are climbing/jumping from the ground spawner on to the rail during Junction Strategy or it can happen while shooting a Thundergun shot when a large amount of zombies is behind a single barrier, it completely overloads the physics collision system, causing an instant crash.
 
 There's **NO** build up towards this error, it can happen instantly at any point, as long as the conditions are met without warning.
 
 #### - What Happens
-In `_zm_spawner.gsc`, every zombie that dies executes `zombie StopSounds();` on the exact same frame.<br>
-The sound system has to queue up and process each zombie's `StopSounds` command one by one, when these `zombie StopSounds();` commands happen on roughly 15 Zombies, these commands are queued in `SND_QueueAdd` at the same time.<br>
-Because the zombies are basically at the same coordinates, they are identical, forcing the sound manager to sort a massive queue of identical priority sounds.<br>
-These sounds are tracked in the engine's global sound manager inside an array called `voiceAliasHash`. A single zombie can have up to 10 active "voices" running at once in loop.<br>
-To process this active `voiceAliasHash` list, the engine requests a temporary memory block. This block has a hardcoded limit of **`24576 bytes`** which can hold up to **3072 pointers**. <br>
-Because of the sudden spike of identical sounds stopped at the same spot all at once, it exceeds this **3072 Pointers** limit, the allocator fails and returns a `NULL` (0x0) pointer. The game fails to check for this and immediately tries to write to it at `0x14000EAC8` address, causing an instant `0xC0000005` Access Violation crash.
+When these roughly 15 zombies die at the exact same coordinates, the game spawns all their ragdoll collision boxes on the exact same frame.<br>
+Because the zombies are basically at the same spot, their ragdoll limbs overlap inside each other, forcing the physics system to create and sort a massive queue of overlapping collision pairs.<br>
+These collision pairs are tracked in the engine's global physics manager inside the active collision pair list.<br>
+To process this active collision list, the engine requests a temporary memory block. This block has a hardcoded limit of **`24576 bytes`** which can hold up to **3072 pointers**.<br>
+Because of the sudden spike of overlapping ragdolls at the same spot all at once, it exceeds this **3072 Pointers** limit, the allocator fails and returns a `NULL` (0x0) pointer. The game fails to check for this and immediately tries to write to it at `0x14000EAC8` address, causing an instant `0xC0000005` Access Violation crash.
 
 #### - How to Avoid the Crash
 *Can look at pictures to where you can safely shoot*
@@ -524,40 +588,7 @@ Because at the top of `do_zombie_rise()` registers `self endon("death");`, killi
 ---
 
 # Gorod Krovi Freeze
-Gorod Krovi Error, is Child CSC based, which has an overflow of 65000, once that’s reached the game will freeze. It is still unknown what 100% is the root cause of it.
-
-#### - How to Avoid the Crash
-With current knowledge, we know that Valks are mainly the cause of the Freeze, so you want to try to kill as few as possible.
-Based on some real games that made it to 255, it is possible to still kill valks, so you don't have to strictly avoid killing them at all times. Just be careful not to kill too many.
-
-#### - Playstyle Recommendations
-These are strategies kxg uses and suggests all players do to ensure reaching round 255:
-* Only use **Dead Wire** and **Turned**
-* Only use the **MK3 until ~round 50**
-* **DO NOT** go overboard spamming the left slowdown shot of the MK3 (this will increases your CI variable)
-
-Shield Usage:
-* **Always aim DOWN** when using the shield
-* **NEVER blast** if a valk is right next to you
-
-Turned Army (Round 159+):
-* Avoid making more than **~6 turned army** on the map at one time
-* More turned army = faster the CSC variable tends to increase
-* You can EITHER:
-  * Blast valks for most of the game carelessly and have ~4 turned army all game after 159+
-  * OR be very careful blasting valks ALL GAME to be allowed 8+ turned on the map safely
-* *(This still needs more testing for conclusive answers)*
-
-Instakill/Death Machine Usage:
-* Do **NOT** carelessly shoot on instakill/death machines when avoiding valk kills
-* Electric Cherry **will** kill valks when instakill is active
-* Death machine usage should **never** be used on valks, and ideally not on manglers
-* Use Electric Cherry on manglers during instakill instead of shooting them directly ![](images/image1.png)
-
-Other Notes:
-* The shield melee bash on instakill *might* also increase the variable (unconfirmed)
-* **NEVER** use the gauntlet or flamethrower unless required for Easter Egg steps
-* The gauntlet punch **RAPIDLY** increases CSC variable
+Gorod Krovi Error, is Child CSC based, which has an overflow of 65000, once that’s reached the game will freeze.
 
 As of **20/04/2026** 
 
@@ -623,9 +654,8 @@ So you can actually safely kill valks, with shield blast, but you have to be car
 #### - Suggestions
 Kill valks as soon as they enter the bunker, while they are just hovering or moving.
 If they start the “Charge” for the attack, you can still kill them within that window.
-If they start zapping, you **DO NOT** kill them, wait about a second or two, for any zap to finish.
+If they start zapping, you **DO NOT** kill them, wait about a second or two, for any zap to finish. <br>
 Killing manglers seems to actually be safe, they don’t seem to be leaking anything in CSC
-
 
 ---
 
@@ -683,70 +713,67 @@ On a **Classics** or **No Gums** game, this is impossible. You have no way to cl
 
 # Read Error Tracker
 
-### How To Read Livesplit Error Tracker
+## How To Read Livesplit Error Tracker
 
-The tracker displays information like this example:
+### How Values Are Displayed Example:
+```text
+Child GSC: <Current_Value> MAX: <Current_MAX_Value> / <Limit>
+```
+* **Current_Value:** Real-time value actively fluctuating as threads and memory allocate and deallocate.
+* **Current_MAX_Value:** The highest recorded peak value during your session. **This is the main number you want to watch.**
+* **Limit:** The value where the game will crash, freeze, or disconnect.
 
-text
-`Child GSC: <Current_Value> MAX: <Current_MAX_Value> / 130000`
+---
 
-What each tracker shows:
-* **Child GSC**: Relates to CI (Connection Interrupted) errors from Widows Wine, rag slams, KT4 kills, MK3 slowdown shots
-* **Child CSC**: The Gorod Krovi Freeze error - valks and misc actions contribute to this
-* **MemTree**: Not an issue on BO3 yet, but can be tracked for science
-* **Hitmarkers**: Broken on GK tracker (can be ignored)
-* **Valk counter**: Mostly accurate (small things like going to PAP can change the value slightly)
+### 1. Error Trackers
 
-#### - How to Read the Tracker Information
-**Left number**: Constantly fluctuating - tracker reading the most current value
-**MAX number**: Highest value the tracker has read for that variable
+| Tracker | Hard Limit | Crash / Error Result | Related Section |
+| :--- | :---: | :--- | :--- |
+| **Child GSC** | **130,000** | **Connection Interrupted (CI) / Script Variable Overflow.** Leaked by rags slams, nade cancels, off-host nades, skull of nan sapwe, and box hits. | • [Rags Slams / Nade Swap Error](#rags-slams--nade-swap--nade-cancel-error)<br>• [Throwable Equipment Error](#throwable-equipment-error)<br>• [Skull of Nan Sapwe Error](#skull-of-nan-sapwe-error)<br>• [Box Error](#box-error) |
+| **Child CSC** | **65,000** | **Game Freeze.** Caused by client script variable leaks (Gauntlet FX and Valkyrie bugs on Gorod Krovi). | • [Gorod Krovi Freeze](#gorod-krovi-freeze) |
+| **G-Spawn** | **1,022** | **Kicked with Error: `G_Spawn: no free entities`.** Caused by permanently orphaned `script_origin` anchors when spawn-killing ground spawners. | • [Early Reset / G_Spawn](#early-reset--g_spawn) |
+| **Physics Error** | **3000+(?)** | Game will insta crash / Fatal error (`0xC0000005`) at 0x00007FF7639DEAC8 (0x000000014000EAC8) | • [Shadows of Evil Errors](#shadows-of-evil-errors) |
+| **Hitmarkers** | **~60,000** | **Game Freeze.** Caused by excessive bullet damage feedback on special enemies (spiders, meatballs, bugs). | • [“Hitmarker” Freeze](#hitmarker-freeze) |
+| **Active GSC Threads** | Shared w/ GSC | Tracks active script threads in real time. | |
+| **MemTree** | 130,000 | It's unknown what happens on BO3 when this overflows, it never occurred as far as we know, yet | |
+
+---
+
+### 2. Engine & Reset Trackers
+
+| Tracker | Hard Limit | Description | Related Section |
+| :--- | :---: | :--- | :--- |
+| **`com_frametime`** | **2,147,483,647** | Total engine uptime in milliseconds. Continuously counts up (even while paused) toward the 32-bit signed integer limit. | • [25 Day Error](#25-day-error) |
+| **Frame Timer** | Calculated | Countdown timer (Days, Hours, Minutes) showing how much time you have left before reaching the 24.85 day limit. | • [25 Day Error](#25-day-error) |
+| **Darkness** | **4,194,303** | 22-bit overflow timer tracking map lighting state. Triggers permanent pitch-black screen in specific zones. | • [Darkness](#darkness) |
+| **Reset Value / Timer** | 2,147,483,646 | Engine tick counter and calculated time remaining until general map reset overflow. | |
+| **Entities** | Variable | Total active entities currently loaded on the map. | |
+| **ViewAngles** | ±11,796,490 | Tracks player camera yaw rotation with overflow detection. Aim lag starts happening around ±1,000,000. | |
+
+---
+
+### 3. Counter Trackers
+
+| Tracker | Description | How to Use |
+| :--- | :--- | :--- |
+| **Rags Slams Counter** | Counts total Ragnarok DG-4 slams | When this counter hits **~1,000 to 2,000 slams**, fully throw **1** grenade/monkey/trip mine to clear all stuck tracking threads. |
+| **Nade Counter** | Tracks grenades thrown | Non-host players should leave and rejoin every **~2,000 thrown grenades** to wipe their thread pool. |
+| **Hitmarker Counter & HPH** | Tracks total bullet hits on special enemies and calculates Hitmarkers Per Hour. | Keep total bullet hitmarkers below **60,000** to avoid the freeze on ZnS and SoE. |
 
 **Important**: The tracker doesn't update instantly. If you see the variable spike, it doesn't mean the last 5 seconds caused it. Look at the bigger picture of actions taken.
 
 ---
 
-## GK Freeze Detailed By Kxg124
+# 25 Day Error
 
-Things kxg avoids that he suggests all players do in order to ensure a 255 first try:
-- Only use deadwire and turned
-- Only use the mk3 until ~50. Do not go overboard spamming the left slowdown shot as that is a known way to rapidly increase your CI variable. People have been able to CI prior to 100 doing this.
-- Aim DOWN when using the shield. NEVER blast if a valk is kissing you, any part of you
-- 159+ turned army: Avoid making more than ~6 turned army on the map at one time. The more turned army on the map = faster the variable tends to increase. You can EITHER blast valks for the majority of the game carelessly and have ~4 turned army all game once on 159+ OR be very careful blasting valks ALL GAME in order to be allowed to have 8+ turned on the map safely. (This point still needs to be tested more in order to give a more conclusive answer, but in the megas science game that was played the more turned army = faster rate for variable increase)
-- Do NOT carelessly shoot on instakill/death machines when trying to avoid valk kills. Electric cherry will kill valks when insta kill is active, but valks will ignore insta kill on valk rounds. (The valk health function seems to not be the same on valk rounds since the insta kill drop does not work properly on valk rounds.) ![](images/image1.png)
-- I have been told that using the melee bash of the shield on insta kill is also a potential issue for variable increase, but this is unconfirmed.
-- NEVER use the gauntlet or flamethrower unless required for the easter egg step. The punch from the gauntlet RAPIDLY increases csc variable.
+### - What Causes the 25 Day Error (Freeze)
+On every Call of Duty Zombies game prior to Black Ops 4, it starts tracking as soon as you open the game, your game will freeze after roughly **24.85 days**.
 
-_____
+This happens because the game engine uses an internal millisecond counter (`com_frametime`) to track uptime. Even when the game is paused, it continuously adds milliseconds towards the **32-bit signed integer limit (`2,147,483,647`)**. Once it reaches roughly 2.147 billion milliseconds (~24.85 days), the integer overflows the game freezes and the game becomes unresponsive.
 
-How the error tracker works:
-
-There seems to be some misunderstanding regarding the tracker bo3 players have for errors. 
-
-![](images/image8.png)
-
-The above image is an example of information the error tracker can display. 
-
-The child GSC relates to the CI (Connection Interrupted) error that is mostly associated with widows wine usage. Other items such as rag slams, kt4 kills, and the slow down shot of the ray gun mk3 can also directly increase this variable. 
-
-The **Child CSC** is the error related to the **GK Freeze** directly. Several misc things can contribute to this variable increasing by a wide range. 
-
-MemTree is not something seen to be an issue on Bo3 (as of yet), but kxg had it open in his megas 255 just to track.
-
-Hitmarkers (for GK at least) are broken on the tracker and can be ignored
-
-Valk counter was largely accurate, but not 100%. Small things such as going to pap changed the value for the counter, along with other small misc events in the game, but not nearly to the point where the value given is not useful. 
-
-**SO HOW DO WE READ THIS INFORMATION???**
-
-The number on the far left is constantly fluctuating. This is the tracker trying to read the most current value for the given variable. The next number (ie: Max: 103943) displays what the tracker has read as the **HIGHEST** value for said variable. The tracker does not update with the highest value instantaneously after doing an action that could directly increase the variable, but it will update frequently enough to show overall progression. What this means is that if you suddenly see the variable spike, it does not mean the action you did in that moment is the direct reason for the variable value increasing. For example, you could be blasting valks for over an hour with the tracker not updating with a new highest value having been read. However, you could be standing still waiting for zombies to get to you and suddenly see the tracker display a new highest variable value being read after said hour. This does NOT mean that you should look at the last 5 seconds of gameplay to see what made the value spike, but rather look at the larger picture of actions taken that could be problematic. 
-
-Testing is still inconclusive to give a 100% definitive answer, however all signs point towards valks being the MAIN contributing factor to avoid interacting with at all cost. This means that when playing, players should avoid damaging and killing valks carelessly. In the countless GK games kxg has played, all of the games that froze early ended because of this. 
-
-In kxg’s classics 255 played at the end of 2020, he went out of his way to play as safe as possible to avoid valks dying. This meant that for the entire game the shield was pointed at the floor in order to control the shield blast to only kill what was directly surrounding the player. Accidental valk kills did still happen, and the player is forced to kill whatever valks are on the map at the end of the round in order to progress. Playing this way is the EXTREME safe way to avoid killing valks as much as possible. (It is also slow, boring as **FUCK**, and means the player cares more about the valk’s lives than their own.) kxg did still make a decent size turned army on 159, and killing valks every now and then to keep the army alive was required. This game was the first EVER to get past 228 in solo, (after kxg getting several 220+ games, and shelby having a 226 and 228 freeze,) with the expectation that this theory of avoiding valk kills would at most avoid freeze until the late 230s/early 240s.kxg was very surprised when he instead got 255 no freeze.
-
-In kxg’s no gum 255 he was a bit more aggressive when killing valks at select points during the game, but the overall playstyle matched the classics. 1-159 was saving valks. 159-180ish valks blasted. 180-230ish valks saved. 230-255 valks blasted.kxg also played an additional ~3 hours to freeze to confirm that the freeze was in fact still just around the corner. 
-
-In the time since kxg’s no gum 255 there have been only 2 more 255s. The first was a classics 255 that shelby/dadwonthugme played that has limited surviving gameplay. I can not speak much regarding the overall playstyle differences, but it is safe to say he was also close to freeze. The only other gk game that made it to 255 without freeze in this time was the megas 255 that kxg played earlier in 2025. Interest in this game came about because of the newly released error tracker that displayed peak values seen for the csc variable. This game was a “science game,” meaning that the point was to see what factors directly correlated with peak spikes for the csc variable increasing. kxg previously played a no jug game where he died on 186 with the tracker displayed, so a baseline estimate of expected variable increase with a playstyle of blasting valks the entire game was already established. kxg tracked the variable on a spreadsheet for every round in the no jug game to see how quickly on average the variable was going up. kxg then did the same thing with the megas 255 on the same spreadsheet to directly compare the rate of the csc variable increasing. The playstyle of the megas 255 was: 1-180 valks were not blasted. Accidental killing along with required blasting to maintain turned army did still occur. The life of valks were more important than the life of the player. 180-200 valks were blasted. 200-210 valks were kept alive. 210-end of game valks were blasted. The full list of the notable events and variable tracking are displayed on this sheet here: https://docs.google.com/spreadsheets/d/1XF08HkgcfjG8eCATmgzAIjjiy_XtfML61BHy-x6Lw0U/edit?usp=sharing ![](images/image1.png)
+In LiveSplit:
+* **`com_frametime`** tracks your raw milliseconds out of `2,147,483,647`.
+* **`Frame Timer`** gives you a live countdown showing the exact Days, Hours, Minutes, and Seconds you have left before the freeze happens.
 
 ---
 
@@ -1382,6 +1409,39 @@ On Nacht, weapons coded near the bottom like Ray Gun Mark 2, SVG, Locus, AK and 
 
 This means you are almost **twice as likely** to roll an SVG compared to rolling a Thundergun, because of this broken function.
 
+### How it Affects Gobblegums (Pack Order RNG)
+Because of the broken randomize function, the slot where you place a gum in your pack actually matters.
+
+| Lobby Slot | 1st Hit | 2nd Hit | 3rd Hit | 4th Hit | 5th Hit |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Slot 1** | 20.00% | 20.00% | 20.00% | 20.00% | 20.00% |
+| **Slot 2** | **24.19%** | 18.05% | 18.56% | 19.20% | 20.00% |
+| **Slot 3** | 20.99% | **23.04%** | 17.41% | 18.56% | 20.00% |
+| **Slot 4** | 18.43% | 20.48% | **23.04%** | 18.05% | 20.00% |
+| **Slot 5** | 16.38% | 18.43% | 20.99% | **24.19%** | 20.00% |
+
+#### - General Pack Setup Rule:
+* **Slot 2** $\rightarrow$ Favors **1st Hit** (**24.19%**)
+* **Slot 3** $\rightarrow$ Favors **2nd Hit** (**23.04%**)
+* **Slot 4** $\rightarrow$ Favors **3rd Hit** (**23.04%**)
+* **Slot 5** $\rightarrow$ Favors **4th Hit** (**24.19%**)
+* **Slot 1** $\rightarrow$ No Favors (**20.00%** across all)
+
+#### - Loadout Examples:
+
+* **Alchem Strat (Trying to Prevent Overlaps):**
+  We High rounders usually put **Alchems** in **Slot 4** (which is best, but could also use slot 3). 
+  This gives it the highest chance to appear as your **2nd or 3rd Hit**. This makes it so you can hit gum machine while still holding/using an active Alchem, preventing you from getting another one on your very 1st hit and overlapping and wasting it.
+
+* **Safety Setup (ABH & IPS):**
+  On maps where you don't use Alchem, where you rely mostly on **ABH (Anywhere But Here)** and **IPS (In Plain Sight)**, put them in **Slot 3 and Slot 4**. 
+  Same reason as alchems.
+
+* **First-Hit Priority:**
+  If you want a specific gum right away on Round 1, place it in **Slot 2** for the highest chance (**24.19%**) to get it on your very first hit.
+
+
+
 ---
 
 # Weighted Weapons 
@@ -1519,6 +1579,208 @@ if(level.var_f06c86b9 > 6)
 }
 ```
 
+# Zombies Health behavior from round 112+
+
+In BO1, zombie health used to overflow past the 32-bit integer limit into negative numbers, making instakill rounds. 
+To prevent this in BO3, Treyarch added an overflow check inside `ai_calculate_health`
+
+[`zombie_utility.gsc`:](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/shared/ai/zombie_utility.gsc#L1906)
+```gsc
+function ai_calculate_health( round_number )
+{
+	level.zombie_health = level.zombie_vars["zombie_health_start"]; 
+	for ( i=2; i <= round_number; i++ )
+	{
+		// After round 10, get exponentially harder
+		if ( i >= 10 )
+		{
+			old_health = level.zombie_health;
+			level.zombie_health += Int( level.zombie_health * level.zombie_vars["zombie_health_increase_multiplier"] );
+
+			if ( level.zombie_health < old_health )
+			{
+				// we must have overflowed the signed integer space, just use the last good health, it'll give some headroom to the capped value to account for extra damage applications
+				level.zombie_health = old_health;
+				return;
+			}
+		}
+		else
+		{
+			level.zombie_health = Int( level.zombie_health + level.zombie_vars["zombie_health_increase"] ); 
+		}
+	}
+}
+```
+
+FireWorks:
+[`_zm_aat_fire_works.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/zm/aats/_zm_aat_fire_works.gsc#L221)
+```gsc
+// Gibs and Kills zombie
+// self == affected zombie
+// e_attacker == the script_model of the gun (needs to do the damage, so the player doesn't receive kickback)
+// w_weapon == the weapon to apply damage using
+// e_owner == the owner of the gun (for awarding challenge stat progress)
+function zombie_death_gib( e_attacker, w_weapon, e_owner )
+{
+	gibserverutils::gibhead( self );
+	
+	if ( math::cointoss() )
+	{
+		gibserverutils::gibleftarm( self );
+	}
+	else
+	{
+		gibserverutils::gibrightarm( self );
+	}
+	
+	gibserverutils::giblegs( self );
+	
+	self DoDamage( self.health, self.origin, e_attacker, w_weapon, "torso_upper" );
+
+	if ( IsDefined( e_owner ) && IsPlayer( e_owner ) )
+	{
+		e_owner zm_stats::increment_challenge_stat( "ZOMBIE_HUNTER_FIRE_WORKS" );
+	}
+}
+```
+
+Thunderwall:
+[`_zm_aat_thunder_wall.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/zm/aats/_zm_aat_thunder_wall.gsc#L119)
+```gsc
+// Executes the fling. If the zombie is the one hit by the bullet, will fling automatically
+		if ( v_curr_zombie_origin_sq < f_thunder_wall_range_sq )
+		{
+			a_ai_zombies[i] DoDamage( a_ai_zombies[i].health, v_curr_zombie_origin, attacker, attacker, "none", "MOD_IMPACT" );
+
+			if ( IsDefined( attacker ) && IsPlayer( attacker ) )
+			{
+				attacker zm_stats::increment_challenge_stat( "ZOMBIE_HUNTER_THUNDER_WALL" );
+			}
+			
+			// If current ai_zombie is not immune to indirect results from the AAT, ragdoll
+			if ( !IS_TRUE( level.aat[ ZM_AAT_THUNDER_WALL_NAME ].immune_result_indirect[ self.archetype ] ) )
+			{
+				// Adds a slight variance to the direction of the fling
+				n_random_x = RandomFloatRange( -3, 3 );
+				n_random_y = RandomFloatRange( -3, 3 );
+				
+				a_ai_zombies[i] StartRagdoll( true );
+				a_ai_zombies[i] LaunchRagdoll ( ZM_AAT_THUNDER_WALL_FORCE * VectorNormalize( v_curr_zombie_origin - v_thunder_wall_blast_pos + ( n_random_x, n_random_y, ZM_AAT_THUNDER_WALL_UPWARD_ANGLE ) ), "torso_lower" );
+			}
+			
+			n_flung_zombies++;
+		}
+```
+
+Turned:
+[`_zm_aat_turned.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/MOD_TOOL_RAW/scripts/zm/aats/_zm_aat_turned.gsc#L223)
+```gsc
+// Gibs and Kills zombie
+// self == affected zombie
+function zombie_death_gib( e_attacker )
+{
+	gibserverutils::gibhead( self );
+	
+	if ( math::cointoss() )
+	{
+		gibserverutils::gibleftarm( self );
+	}
+	else
+	{
+		gibserverutils::gibrightarm( self );
+	}
+	
+	gibserverutils::giblegs( self );
+	
+	self DoDamage( self.health, self.origin );
+}
+```
+
+Ice Staff:
+[`_zm_weap_staff_water.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_staff_water.gsc#L188)
+```gsc
+function staff_water_kill_zombie(player, str_weapon)
+{
+	self freeze_zombie();
+	self zm_tomb_utility::do_damage_network_safe(player, self.health, str_weapon, "MOD_RIFLE_BULLET");
+	if(isdefined(self.deathAnim))
+	{
+		self waittillmatch("death_anim");
+	}
+	if(isdefined(self))
+	{
+		self thread frozen_zombie_shatter();
+	}
+	player zm_score::player_add_points("death", "", "");
+}
+```
+
+Unupgraded SoE Sword:
+[`_zm_weap_glaive.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_glaive.gsc#L471)
+```gsc
+function tesla_death(player)
+{
+	self endon("death");
+	self thread function_862aadab(1);
+	wait(2);
+	player thread zm_audio::create_and_play_dialog("kill", "sword_slam");
+	self DoDamage(self.health + 1, self.origin);
+}
+```
+
+Storm Bow:
+[`_zm_weap_elemental_bow_storm.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_elemental_bow_storm.gsc#L339)
+```gsc
+...
+		{
+			n_damage = 4782;
+			str_damage_mod = "MOD_UNKNOWN";
+			var_79be6e3b = self.health;
+		}
+		var_dfc0ef57 = 0;
+		if(isdefined(e_player) && (isdefined(level.zombie_vars[e_player.team]["zombie_insta_kill"]) && level.zombie_vars[e_player.team]["zombie_insta_kill"]) && self.archetype !== "mechz")
+		{
+			var_dfc0ef57 = 1;
+		}
+		if(var_79be6e3b > n_damage && !var_dfc0ef57)
+		{
+			self DoDamage(n_damage, self.origin, e_player, e_player, undefined, str_damage_mod, 0, level.var_16e90d5f);
+			if(var_94d13bd0)
+			{
+				var_b50659f2 = 1;
+				if(self.archetype === "mechz")
+				{
+					self thread function_23c30f35(e_player, var_9b78d768, var_337b3336);
+				}
+				else
+				{
+					self thread function_8a5627f3(e_player, var_9b78d768, var_337b3336);
+				}
+			}
+			else
+			{
+				self.var_789ebfb2 = 0;
+			}
+		}
+```
+
+Fire Bow:
+[`_zm_weap_elemental_bow_rune_prison.gsc`](https://github.com/oJumpy/t7-zm_scripts/blob/f2ef6d9349da45d14352e748413226605bc6747d/zm/_zm_weap_elemental_bow_rune_prison.gsc#L215)
+```gsc
+...
+else if(self.archetype === "zombie")
+		{
+			if(math::cointoss())
+			{
+				GibServerUtils::GibHead(self);
+				self clientfield::set("runeprison_zombie_death_skull", 1);
+			}
+			self DoDamage(self.health, var_c8bd3127.origin, e_player, e_player, undefined, "MOD_BURNED", 0, level.var_791ba87b);
+		}
+		self SetPlayerCollision(1);
+		self Unlink();
+	}
+```
 
 ---
 
@@ -1527,7 +1789,7 @@ if(level.var_f06c86b9 > 6)
 - initially roughly **40% of all valid pod locations** are spawned
 - later after `between_round_over` fires **3 to 5 pods spawn**, this is skipped for rounds 1-3 if no player has a fumigator
 
-In `zm_zod_pods.gsc`:
+In https://github.com/oJumpy/t7-zm_scripts/blob/main/zm/zm_zod_pods.gsc`:
 ```gsc
 function private respawn_fungus_pods()
 {
@@ -1892,8 +2154,6 @@ The tables below show the default normalized chances if none are disabled. To re
 ---
 
 # TODO
-
-Zombies Health behavior from round 112+ // TODO
 
 Turned Army // TODO
 
